@@ -1,0 +1,41 @@
+
+h1 {
+  font-family: Lobster Two;
+  color: orange;
+  text-align: center;
+}
+
+h4 {
+  color: green;
+}
+
+span {
+  font-size: 1.5em;
+}
+
+.result {
+  width: 100%;
+}
+
+.mix {
+  text-align: center;
+  padding-top: 2.5em;
+  width: 50%;
+}
+
+.about {
+  text-transform: lowercase;
+  text-align: left;
+}
+
+.controls {
+  text-align: center;
+}
+
+.nav {
+  text-align: center;
+}
+
+#Container .mix{
+	display: none;
+}

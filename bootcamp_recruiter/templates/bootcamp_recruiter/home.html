@@ -1,0 +1,52 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Bootcamp Recruiter </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Lobster+Two:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+	  <script src="http://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+  </head>
+  <body>
+      <h1> Bootcamp Recruiter </h1>
+      <div class="controls">
+      <ul class="nav nav-tabs">
+          <button class="btn btn-link filter" data-filter="all">Show All </button>
+          <button class="btn btn-link filter" data-filter=".E-Commerce">E-Commerce </button>
+          <button class="btn btn-link filter" data-filter=".Education">Education </button>
+          <button class="btn btn-link filter" data-filter=".Agency">Agency</button>
+          <button class="btn btn-link filter" data-filter=".Finance">Finance</button>
+          <button class="btn btn-link filter" data-filter=".Software">Software</button>
+          <button class="btn btn-link filter" data-filter=".Media">Media</button>
+          {% if user and not user.is_anonymous %}
+          <p> Welcome {{user.get_full_name}} </p>
+          {% endif %}
+      </ul>
+
+       <div id="Container" class="container">
+            <div class="result"></div>
+       </div>
+      {% verbatim %}
+      <template id="company-template" type="text/x-handlebars-template">
+        {{#each companies}}
+          <div class="mix {{industry_type}}">
+            <h4> <b> {{company_name}} </b> </h4>
+            <p> <b> Industry: </b> {{industry_type}}  </p>
+            <p> <b> # of GA Grads Hired </b> {{bootcamp_grad_hired}} </p>
+            <p> <b> Contact Email: </b> {{contact}} </p>
+            <p class="about"> {{notes}} </p>
+            <a href= 'companys/{{company_name}}'> Learn More Here </a>
+            <a href="{{company_url}}" target="_blank" class="btn btn-default">Check Em Out</a>
+          </div>
+        {{/each}}
+        {% endverbatim %}
+      </template>
+
+  </body>
+</html>
