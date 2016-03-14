@@ -20,7 +20,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'yjker$9)h6p8xe-tjhl66-45r+f1pvj^ze%qk31$q598wm&h6h'
+SECRET_KEY = environ.get('DJANGO_SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -134,11 +135,11 @@ SOCIAL_AUTH_LOGIN_ERROR_URL    = '/login-error/'
 
 LOGIN_URL = '/login/twitter'
 
-SOCIAL_AUTH_TWITTER_KEY = '6ZCHvOudLrHrw1b4TIlHwIctS'
-SOCIAL_AUTH_TWITTER_SECRET = 'YduAu8bb5YD9iM5CsWfkXm9W4CLyLwYMcmFvboV8FsEN0ioTOl'
+SOCIAL_AUTH_TWITTER_KEY = environ.get('CONSUMER_KEY')               # Twitter API Consumer Key
+SOCIAL_AUTH_TWITTER_SECRET = environ.get('CONSUMER_SECRET')         # Twitter API Consumer Secret
 
-TWITTER_ACCESS_TOKEN = '48470731-eT88VYDYTbnecAIFHo9WNX7oy75W0l5ISX3XD7ejh'
-TWITTER_ACCESS_TOKEN_SECRET = '9mRLI5m8NCYWpZz8JXfKEIh5komgOYQz0CDFZocli3ju7'
+TWITTER_ACCESS_TOKEN = environ.get('ACCESS_TOKEN')                  # Twitter API Access Token
+TWITTER_ACCESS_TOKEN_SECRET = environ.get('ACCESS_TOKEN_SECRET')    # Twitter API Access Secret
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
