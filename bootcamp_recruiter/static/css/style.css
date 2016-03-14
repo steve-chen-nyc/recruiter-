@@ -1,31 +1,148 @@
 
+
 h1 {
-  font-family: Lobster Two;
-  color: orange;
+  font-family: khand;
+  font-weight: 300;
+  color: black;
   text-align: center;
+  text-transform: uppercase;
+  margin-bottom: -3px;
+}
+
+h3 {
+  font-family: khand;
+  font-weight: 300;
+  color: black;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+a {
+  color: #afc242;
+}
+
+a:hover {
+  color: #ccdc53;
+  text-decoration: none;
+}
+
+.dummy{
+  padding-top: 3em;
+}
+
+#typed {
+  font-family: khand;
+  font-weight: 300;
+  margin-top: 5em;
+  font-size: 2em;
+  padding-right: 0;
+}
+
+.banner {
+  width: 100%;
+}
+
+.tagline {
+  font-family: PT Serif, serif;
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+}
+
+.tagline_div {
+  color: #939393
+}
+
+.nav-tabs {
+  margin-top: 2em;
+}
+
+.btn-link {
+  text-transform: uppercase;
+  font-family: khand;
+  font-weight: 300;
+  color: black;
 }
 
 h4 {
-  color: green;
+  font-family: khand;
+  font-weight: 300;
+  font-size: 2em;
+  color: #afc242;
+  text-align: center;
+  float: right;
+  padding-bottom: .5em;
+  padding-right: 29px;
+}
+
+footer {
+  width: 100%;
+  color: #f4f4f4;
+  height: 200px;
+}
+
+button.btn:hover {
+  text-decoration: none;
+}
+
+button.btn.active {
+  text-decoration: none;
 }
 
 span {
   font-size: 1.5em;
 }
 
+.table {
+  width: 61%;
+}
+
+div.tweet_box {
+  float: left;
+  padding-left: 4em;
+  padding-right: 1.5em;
+}
+
+.tweet_button {
+  text-align: center;
+    white-space: normal;
+}
+
+
+img {
+  width: 20%;
+}
+
+
+.form-inline {
+  text-align: center;
+  padding-top: 1.5em;
+}
+
+.title {
+  border: 1px solid grey;
+  padding: 1.5em;
+}
+
 .result {
   width: 100%;
+  text-align: center;
 }
+
+#company_detail{
+  width: 50%;
+  margin: 0 auto;
+}
+
 
 .mix {
   text-align: center;
   padding-top: 2.5em;
-  width: 50%;
 }
 
-.about {
+p.about {
   text-transform: lowercase;
-  text-align: left;
+  margin-bottom: 3em;
 }
 
 .controls {
@@ -38,4 +155,43 @@ span {
 
 #Container .mix{
 	display: none;
+}
+
+.login {
+  text-align: right;
+  padding-top: 2.0em;
+}
+
+.auth {
+  padding-right: 2.0em;
+  font-size: .8em;
+}
+
+.links {
+  text-align: center;
+}
+
+.user_description {
+  width: 75%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#twitter_logo{
+  text-align: left;
+}
+
+#company_table {
+  margin: 0 auto;
+}
+
+.blink {
+  font-family: PT Serif, serif;
+  animation: blinking normal 3s ease-in-out;
+}
+
+@keyframes blinking {
+  0% {opacity: 0;}
+  50% {opacity: .5;}
+  100% {opacity: 1;}
 }

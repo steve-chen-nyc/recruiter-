@@ -1,8 +1,41 @@
-<div>
-  <h1> {{company_name.company_name}} </h1>
-  <p> <b> {{company_name.industry_type }}</p>
-  <div>
-    <a href="/" style="text-decoration: none"> Back </a>
-    <a href="/twitter/{{company_name}}"> See Twitter Feed </a>
- </div>
-</div>
+{% extends 'bootcamp_recruiter/base.html' %}
+{% load staticfiles %}
+
+  {% block content %}
+
+      <div class="result">
+        <div id="company_detail">
+          <h3> {{company_name.company_name}} </h3>
+          <p class="about"> {{company_name.notes}} </p>
+
+          <table class="table table-striped" id="company_table"style="float:left">
+            <tr>
+              <td> <b> Industry: </b> {{company_name.industry_type}}  </td>
+            </tr>
+            <tr>
+              <td> <b> # of GA Grads Hired </b> {{company_name.bootcamp_grad_hired}} </td>
+            </tr>
+            <tr>
+              <td> <b> Contact Email: </b> {{company_name.contact}} </td>
+            </tr>
+            <tr>
+              <td> <b> Website:</b><a href='{{company_name.company_url}}' target="_blank"> Learn More</a></td>
+            </tr>
+        </table>
+        <div class="links">
+          {% if user and not user.is_anonymous %}
+            <a href="/twitter/{{company_name}}"> Connect Here >> </a>
+            <a href="/twitter/{{company_name}}"> <img src="{%static "images/twitter.png" %}">  </a> <br>
+            <a class="glyphicon glyphicon-home" style="font-size: 20px;" href='/'></a>
+          {% else %}
+            <a href="/twitter/{{company_name}}"> <img src="{%static "images/twitter.png" %}">  </a> <br>
+            <a class="auth" href="/login/twitter">Login to Twitter and start the conversation!</a> <br>
+            <a class="glyphicon glyphicon-home" style="font-size: 20px;" href='/'></a>
+          {% endif %}
+       </div>
+        </div>
+
+      </div>
+    </div>
+
+  {% endblock %}

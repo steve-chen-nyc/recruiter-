@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+  </head>
+  <body>
+    <h1> Fail Page  </h1>
+    <div class="giphy_container"> </div>
+    <script>
+    $(function(){
+         $.getJSON('http://api.giphy.com/v1/gifs/search?q=fail&limit=20&api_key=dc6zaTOxFJmzC', function(data) {
+              var randomNumber = Math.floor(Math.random() * 20)
+              var giphy = data.data[randomNumber].images.fixed_height.url
+              var result = $('.giphy_container').append('<div>').find('div');
+           result.append('<img src=' + giphy + '>' )
+         });
+      });
+      </script>
+  </body>
+</html>

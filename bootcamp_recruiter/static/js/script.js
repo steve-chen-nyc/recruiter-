@@ -1,11 +1,23 @@
 'use strict'
 
 $(function(){
+
+    $("#typed").typed({
+        stringsElement: $('#typed-strings'),
+        cursorChar: "",
+    });
+
+
+    $(document).on('click', function(){
+      $('#typed').hide();
+    })
+
   $('#Container').mixItUp({
     animation: {
       effects: 'fade translateX(100%)',
   		reverseOut: false
     }
+
   });
 
   let renderTemplate_show_companies = Handlebars.compile($('template#company-template').html());
