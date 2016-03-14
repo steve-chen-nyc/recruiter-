@@ -28,5 +28,6 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url('', include('social.apps.django_app.urls', namespace='social')),
     url('', include('django.contrib.auth.urls', namespace='auth')),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_frameworks'))
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_frameworks')),
+    (r'^static/(?P.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT})
 ]

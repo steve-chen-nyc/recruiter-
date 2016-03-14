@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = environ.get('DJANGO_SECRET_KEY')
+SECRET_KEY = 'yjker$9)h6p8xe-tjhl66-45r+f1pvj^ze%qk31$q598wm&h6h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -134,11 +134,11 @@ SOCIAL_AUTH_LOGIN_ERROR_URL    = '/login-error/'
 
 LOGIN_URL = '/login/twitter'
 
-SOCIAL_AUTH_TWITTER_KEY = environ.get('CONSUMER_KEY')               # Twitter API Consumer Key
-SOCIAL_AUTH_TWITTER_SECRET = environ.get('CONSUMER_SECRET')         # Twitter API Consumer Secret
+SOCIAL_AUTH_TWITTER_KEY = '6ZCHvOudLrHrw1b4TIlHwIctS'
+SOCIAL_AUTH_TWITTER_SECRET = 'YduAu8bb5YD9iM5CsWfkXm9W4CLyLwYMcmFvboV8FsEN0ioTOl'
 
-TWITTER_ACCESS_TOKEN = environ.get('ACCESS_TOKEN')                  # Twitter API Access Token
-TWITTER_ACCESS_TOKEN_SECRET = environ.get('ACCESS_TOKEN_SECRET')
+TWITTER_ACCESS_TOKEN = '48470731-eT88VYDYTbnecAIFHo9WNX7oy75W0l5ISX3XD7ejh'
+TWITTER_ACCESS_TOKEN_SECRET = '9mRLI5m8NCYWpZz8JXfKEIh5komgOYQz0CDFZocli3ju7'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
@@ -153,11 +153,13 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
-# Extra places for collectstatic to find static files.
+# Additional locations of static files
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(BASE_DIR, "static"),
 )
