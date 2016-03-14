@@ -19,3 +19,4 @@ requests-oauthlib==0.6.1
 six==1.10.0
 static3==0.6.1
 whitenoise==2.0.6
+gunicorn==19.1.1
