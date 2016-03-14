@@ -1,5 +1,6 @@
 chardet==2.3.0
 defusedxml==0.4.1
+dj-static==0.0.6
 Django==1.9
 django-adaptors==0.2.5
 django-csvimport==2.4
@@ -15,4 +16,5 @@ python3-openid==3.0.9
 requests==2.9.1
 requests-oauthlib==0.6.1
 six==1.10.0
+static3==0.6.1
 whitenoise==2.0.6
