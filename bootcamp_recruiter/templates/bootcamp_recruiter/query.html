@@ -19,7 +19,7 @@
     <form class="form-vertical" action="/tweets" method="post">
     {% csrf_token %}
         <div class="form-group">
-          <input type="text" class="form-control" id="status" name="status" value="@{{first_s.user.screen_name}}">
+          <textarea type="text" row="3" class="form-control" id="status" name="status" value="@{{first_s.user.screen_name}}">@{{first_s.user.name}}</textarea> 
         </div>
 
       <div class="form-group">
