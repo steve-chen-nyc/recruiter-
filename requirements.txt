@@ -1,0 +1,17 @@
+chardet==2.3.0
+defusedxml==0.4.1
+Django==1.9
+django-adaptors==0.2.5
+django-csvimport==2.4
+djangorestframework==3.3.2
+future==0.15.2
+oauthlib==1.0.3
+psycopg2==2.6.1
+Pygments==2.1.1
+PyJWT==1.4.0
+python-social-auth==0.2.14
+python-twitter==3.0rc1
+python3-openid==3.0.9
+requests==2.9.1
+requests-oauthlib==0.6.1
+six==1.10.0
