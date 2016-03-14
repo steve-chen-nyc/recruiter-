@@ -20,4 +20,3 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bcrecruit.settings")
 
 application = get_wsgi_application()
 application = DjangoWhiteNoise(application)
-application = StaticFilesHandler(get_wsgi_application())
