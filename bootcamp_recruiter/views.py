@@ -48,7 +48,7 @@ def tweet(request):
     #isolates just the twitter handle from status
     twitter_handle = status[1:index].lower()
     #query company to get company name and pass var into parameter
-    company = Company.objects.get(twitter_handle=twitter_handle)
+    company = Company.objects.get(twitter_handle__icontains=twitter_handle)
     company_name = company.company_name
 
     api = get_twitter(request.user)
