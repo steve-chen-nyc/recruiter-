@@ -151,10 +151,12 @@ p.about {
 
 p.chars-left {
   float: right;
-  padding-right: 46px;
+  padding-right: 56px;
   color: #55acee;
   font-size: .8em;
   padding-top: 9px;
+  max-width: 5%;
+  min-width: 2px;
 }
 
 textarea {
