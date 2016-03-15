@@ -230,3 +230,9 @@ textarea {
   50% {opacity: .5;}
   100% {opacity: 1;}
 }
+
+.industry-filter {
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: inherit;
+}
