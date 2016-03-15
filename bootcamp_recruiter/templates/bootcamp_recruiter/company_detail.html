@@ -5,7 +5,7 @@
 
       <div class="result">
         <div id="company_detail">
-          <h3> {{company_name.company_name}} </h3>
+          <h2 class="company-header"> {{company_name.company_name}} </h2>
           <p class="about"> {{company_name.notes}} </p>
 
           <table class="table table-striped" id="company_table"style="float:left">
@@ -24,12 +24,12 @@
         </table>
         <div class="links">
           {% if user and not user.is_anonymous %}
-            <a href="/twitter/{{company_name}}"> Connect Here >> </a>
+            <a href="/twitter/{{company_name}}"> Say #Hello! </a> <br>
             <a href="/twitter/{{company_name}}"> <img src="{%static "images/twitter.png" %}">  </a> <br>
             <a class="glyphicon glyphicon-home" style="font-size: 20px;" href='/'></a>
           {% else %}
             <a href="/twitter/{{company_name}}"> <img src="{%static "images/twitter.png" %}">  </a> <br>
-            <a class="auth" href="/login/twitter">Login to Twitter and start the conversation!</a> <br>
+            <a href="/login/twitter">Login and say #hello!</a> <br>
             <a class="glyphicon glyphicon-home" style="font-size: 20px;" href='/'></a>
           {% endif %}
        </div>

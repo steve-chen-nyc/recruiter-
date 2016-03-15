@@ -109,6 +109,10 @@ WSGI_APPLICATION = 'bcrecruit.wsgi.application'
 #     }
 # }
 
+import dj_database_url
+DATABASES = {
+    'default': dj_database_url.config(default='postgresql_psycopg2://bcrecruiter.db')
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -170,8 +174,3 @@ STATICFILES_DIRS = (
 )
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
-import dj_database_url
-DATABASES = {
-    'default': dj_database_url.config(default='postgresql_psycopg2://bcrecruiter.db')
-}

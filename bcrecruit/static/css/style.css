@@ -7,14 +7,16 @@ h1 {
   text-align: center;
   text-transform: uppercase;
   margin-bottom: -3px;
+  font-size: 45px;
 }
 
-h3 {
+h2.company-header {
   font-family: khand;
   font-weight: 300;
   color: black;
   text-align: center;
   text-transform: uppercase;
+  font-size: 45px;
 }
 
 a {
@@ -72,7 +74,7 @@ h4 {
   text-align: center;
   float: right;
   padding-bottom: .5em;
-  padding-right: 29px;
+  padding-right: 32px;
 }
 
 footer {
@@ -95,6 +97,8 @@ span {
 
 .table {
   width: 61%;
+  color: gray !important;
+  background-color: #f1f1f1;
 }
 
 div.tweet_box {
@@ -145,6 +149,27 @@ p.about {
   margin-bottom: 3em;
 }
 
+p.chars-left {
+  float: right;
+  padding-right: 46px;
+  color: #55acee;
+  font-size: .8em;
+  padding-top: 9px;
+}
+
+textarea {
+  height: 11em !important;
+  font-size: 12px !important;
+}
+
+.form-control {
+  max-width: 100% !important;
+  width: inherit;;
+   -webkit-box-sizing: content-box;
+   -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
 .controls {
   text-align: center;
 }
@@ -157,6 +182,13 @@ p.about {
 	display: none;
 }
 
+#home-button {
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
+  padding-right: 1.9em;
+}
+
 .login {
   text-align: right;
   padding-top: 2.0em;
@@ -164,7 +196,10 @@ p.about {
 
 .auth {
   padding-right: 2.0em;
-  font-size: .8em;
+}
+
+.auth {
+  padding-right: 2.0em;
 }
 
 .links {

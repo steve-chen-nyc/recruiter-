@@ -6,7 +6,7 @@
     {% with statuses|first as first_s %}
     <div style="padding-bottom: 3em; width:50%; margin: 0 auto">
       <div>
-        <h3> {{first_s.user.name}} </h3>
+        <h2 class="company-header"> {{first_s.user.name}} </h2>
       </div>
       <p class="user_description"> {{ first_s.user.description}} </p>
     </div>
@@ -15,18 +15,19 @@
 
   <div class="tweet_box">
     <img id="twitter_logo"src="{{ first_s.user.profile_image_url}}">
-    <h4> SAY HELLO! </h4>
+    <h4> SAY #HELLO! </h4>
     <form class="form-vertical" action="/tweets" method="post">
     {% csrf_token %}
         <div class="form-group">
-          <textarea type="text" row="3" class="form-control" id="status" name="status" value="@{{first_s.user.screen_name}}">@{{first_s.user.name}}</textarea> 
+          <textarea type="text" class="form-control" id="status" name="status" value="@{{first_s.user.screen_name}}">@{{first_s.user.name}}</textarea>
         </div>
 
-      <div class="form-group">
-        <div class="tweet_button">
-          <button style="margin-bottom:20px;"type="submit" class="btn btn-primary">Tweet</button> <br>
-          <a class="glyphicon glyphicon-home" style="font-size: 20px;" href='/'></a>
-        </div>
+        <div class="form-group">
+          <div class="tweet_button">
+            <p class="chars-left"> 140 </p>
+            <button style="margin-bottom:20px; margin-left: 33px;"type="submit" class="btn btn-primary">Tweet</button> <br>
+         </div>
+        <a class="glyphicon glyphicon-home" id="home-button" style="font-size: 20px;" href='/'></a>
      </div>
    </div>
  </form>
@@ -45,4 +46,16 @@
  </div>
     {% endwith %}
 
+  <script>
+  $(function(){
+    $('textarea').keyup(function(){
+       var chars_left = $('textarea').val().length;
+       var remainder = 140 - chars_left;
+
+       $('.chars-left').html('');
+       $('.chars-left').append(remainder);
+    });
+  });
+
+  </script>
   {% endblock %}
