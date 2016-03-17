@@ -41,15 +41,16 @@
       </div>
     {% endfor %}
   </table>
-
-
  </div>
     {% endwith %}
 
-  <script>
 
 
+
+  <script type="text/javascript">
   $(function(){
+
+    // counts down remaining characters remaining in tweet. Turns red if 0.
     $('textarea').keyup(function(){
        var chars_left = $('textarea').val().length;
        var remainder = 140 - chars_left;

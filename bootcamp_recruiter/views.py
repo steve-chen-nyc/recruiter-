@@ -42,7 +42,6 @@ def query(request,company_name):
 def tweet(request):
     status = request.POST.get("status", None)
     response = None
-
     #get index of first instance of whitespace
     index = status.index(' ')
     #isolates just the twitter handle from status
@@ -66,7 +65,7 @@ def checker(string):
     slang_list = ['savage','fam','synergy','totes','bottomline','hardworker','dynamic','proactively','obvi','fleek','yolo','cray','cra-cra','bae','whateves','obvs' ,'ridic','feels','lit','sus','yeet','snatched','trash']
 
     catcher = []
-    tweet = string.split()
+    tweet = string.lower().split()
 
     for t in tweet:
         if t in slang_list:
