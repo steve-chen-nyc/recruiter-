@@ -19,12 +19,12 @@
     <form class="form-vertical" action="/tweets" method="post">
     {% csrf_token %}
         <div class="form-group">
-          <textarea type="text" class="form-control" id="status" name="status" value="@{{first_s.user.screen_name}} ">@{{first_s.user.screen_name}} </textarea>
+          <textarea maxlength="140" type="text" class="form-control" id="status" name="status" value="@{{first_s.user.screen_name}} ">@{{first_s.user.screen_name}} </textarea>
         </div>
 
         <div class="form-group">
           <div class="tweet_button">
-            <p class="chars-left"> 140 </p>
+            <p class="chars-left"></p>
             <button style="margin-bottom:20px; margin-left: 26px;"type="submit" class="btn btn-primary">Tweet</button> <br>
          </div>
         <a class="glyphicon glyphicon-home" id="home-button" style="font-size: 20px;" href='/'></a>
@@ -47,6 +47,8 @@
     {% endwith %}
 
   <script>
+
+
   $(function(){
     $('textarea').keyup(function(){
        var chars_left = $('textarea').val().length;
@@ -54,7 +56,22 @@
 
        $('.chars-left').html('');
        $('.chars-left').append(remainder);
+
+      if (remainder === 0) {
+         $('textarea').addClass('box-red');
+         $('.chars-left').addClass('char-red');
+      } else {
+        $('textarea').removeClass('box-red');
+        $('.chars-left').removeClass('char-red');
+      }
+
     });
+
+    var chars_left = $('textarea').val().length;
+    var remainder = 140 - chars_left;
+    $('.chars-left').html('');
+    $('.chars-left').append(remainder);
+
   });
 
   </script>

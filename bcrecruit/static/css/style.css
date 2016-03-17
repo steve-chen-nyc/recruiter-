@@ -238,3 +238,11 @@ textarea {
   letter-spacing: 1px;
   font-weight: inherit;
 }
+
+.box-red {
+  border: 1.5px solid red !important;
+}
+
+.char-red {
+  color: red !important;
+}
