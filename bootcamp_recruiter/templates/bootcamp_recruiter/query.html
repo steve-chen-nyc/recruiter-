@@ -27,10 +27,11 @@
             <p class="chars-left"></p>
             <button style="margin-bottom:20px; margin-left: 26px;"type="submit" class="btn btn-primary">Tweet</button> <br>
          </div>
-        <a class="glyphicon glyphicon-home" id="home-button" style="font-size: 20px;" href='/'></a>
-     </div>
-   </div>
- </form>
+            <a class="glyphicon glyphicon-home" id="home-button" style="font-size: 20px;" href='/'></a>
+       </div>
+     </form>
+  </div>
+
 
     <table class="table table-striped" id="twitter_container">
     {% for s in statuses %}
@@ -49,6 +50,14 @@
 
   <script type="text/javascript">
   $(function(){
+
+    // links live in feed 
+    $('td').each(function(){
+      var tweet = $(this).html();
+      var regex = /(https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?)/ig
+      var replace_link = tweet.replace(regex, "<a href='$1' target='_blank'>$1</a>");
+      $(this).html(replace_link);
+     })
 
     // counts down remaining characters remaining in tweet. Turns red if 0.
     $('textarea').keyup(function(){
