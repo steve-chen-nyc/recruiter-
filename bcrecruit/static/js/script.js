@@ -20,19 +20,19 @@ $(function(){
 
   });
 
-  let renderTemplate_show_companies = Handlebars.compile($('template#company-template').html());
+  var renderTemplate_show_companies = Handlebars.compile($('template#company-template').html());
 
   $.ajax({
     url:"/company",
     method:"GET",
-  }).done((data) => {
-    let company = data.results;
+  }).done(function(data){
+    var company = data.results;
     showCompany(company);
   })
 
-  let showCompany = (data) => {
-    let results = $('.result');
-    let compiledTemplate = renderTemplate_show_companies({companies: data});
+  var showCompany = function(data){
+    var results = $('.result');
+    var compiledTemplate = renderTemplate_show_companies({companies: data});
     results.html('').append(compiledTemplate)
   }
 });
