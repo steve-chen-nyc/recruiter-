@@ -1,0 +1,10 @@
+{% extends 'bootcamp_recruiter/base.html' %}
+{% load staticfiles %}
+
+  {% block content %}
+      <h1>  {{tweet.user.name}}  </h1>
+      <p> {{tweet.entities}} </p>
+      <p style="text-align: center" class="tweets">{{tweet.text}} <br> <i style="font-size: .7em;"> Created On: {{tweet.created_at}} <i> </p>
+      <p style="text-align: center"> favorited: {{tweet.favorite_count}} | retweeted: {{tweet.retweet_count}} </p>
+
+  {% endblock %}

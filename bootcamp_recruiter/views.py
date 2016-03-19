@@ -6,6 +6,12 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.conf import settings
 from social.apps.django_app.default.models import UserSocialAuth
 
+
+from django.core import serializers
+from django.utils import timezone
+import datetime
+import operator
+
 from .models import Company
 from rest_framework import viewsets
 from bootcamp_recruiter.serializers import CompanySerializer
@@ -74,9 +80,44 @@ def checker(string):
     if len(catcher) >= 1:
         return False
 
+
 @login_required
 def fail(request):
     return render(request, 'bootcamp_recruiter/fail.html', {})
+
+
+def heroes(request):
+    # gets day of the week - selects user
+    today = datetime.datetime.now().strftime("%A").lower()
+    hero_list = ['jack','kobebryant','rickyrozay','therock','sophiaamoruso','shondarhimes','BarackObama']
+    api = get_twitter(request.user)
+
+    if today == 'monday':
+        hero_status = hero_list[0]
+    elif today == 'tuesday':
+        hero_status = hero_list[1]
+    elif today == 'wednesday':
+        hero_status = hero_list[2]
+    elif today == 'thursday':
+        hero_status = hero_list[3]
+    elif today == 'friday':
+        hero_status = hero_list[4]
+    elif today == 'saturday':
+        hero_status = hero_list[5];
+    elif today == 'sunday':
+        hero_status = hero_list[6];
+
+    statuses = api.GetUserTimeline(screen_name=hero_status,count=50,include_rts=False)
+
+    # gets tweet with the most amount of favorites and retweets
+    tweet_counter = 0
+    for s in statuses:
+        counter = s.favorite_count + s.retweet_count
+        if counter > tweet_counter:
+            tweet_counter = counter;
+            tweet = s
+
+    return render(request, 'bootcamp_recruiter/holditdown.html', {'tweet': tweet})
 
 
 def get_twitter(user):
