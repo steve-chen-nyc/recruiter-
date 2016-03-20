@@ -18,8 +18,10 @@
   </div>
 
   <script>
-  var name = $('.screen_name').html();
-
+    var tweet = $('.tweets').html();
+    var regex = /(https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?)/ig
+    var replace_link = tweet.replace(regex, "<a href='$1' target='_blank'>$1</a>");
+    $('.tweets').html(replace_link);
   </script>
 
   {% endblock %}

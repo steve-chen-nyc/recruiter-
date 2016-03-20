@@ -264,8 +264,21 @@ textarea {
   margin-right: 15px;
 }
 
-
 .hero-home {
   top: 12px;
   font-size: 30px;
+}
+
+.giphy-copy {
+  padding-top: 2em;
+  text-align : center;
+}
+
+.giphy-container {
+  padding-top: 6em;
+  text-align: center;
+}
+
+.giphy-image img {
+  width: 40%
 }

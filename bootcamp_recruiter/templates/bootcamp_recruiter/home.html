@@ -16,7 +16,9 @@
         <button class="industry-filter btn btn-link filter" data-filter=".Software">Software</button>
         <button class="industry-filter btn btn-link filter" data-filter=".Media">Media</button>
         {% if user and not user.is_anonymous %}
-        <button class="industry-filter btn btn-link filter"> <a href="/heroes"> Motivation <a></button>
+          <button class="industry-filter btn btn-link filter"> <a href="/heroes"> Hustlers <a></button>
+        {%else%}
+          <button class="industry-filter btn btn-link filter"> <a href="/login/twitter"> Hustlers <a></button>
         {% endif %}
     </ul>
 
@@ -24,7 +26,7 @@
       <p> Find companies that have hired Bootcamp Grads</p>
       <p> Filter them based on industry </p>
       <p> Get the scoop </p>
-      <p> Then connect with them on Twitter </p>
+      <p> Then connect on Twitter </p>
       <p> <a class="blink" href="/login/twitter"> <img src="{%static "images/twitter.png" %}"> Login >> </a></p>
     </div>
     <div class="dummy"> </div>
@@ -43,6 +45,4 @@
       {% endverbatim %}
       </template>
     </div>
-
-
   {% endblock %}
