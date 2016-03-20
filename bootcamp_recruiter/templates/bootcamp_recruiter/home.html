@@ -15,6 +15,9 @@
         <button class="industry-filter btn btn-link filter" data-filter=".Finance">Finance</button>
         <button class="industry-filter btn btn-link filter" data-filter=".Software">Software</button>
         <button class="industry-filter btn btn-link filter" data-filter=".Media">Media</button>
+        {% if user and not user.is_anonymous %}
+        <button class="industry-filter btn btn-link filter"> <a href="/heroes"> Motivation <a></button>
+        {% endif %}
     </ul>
 
     <div id="typed-strings">

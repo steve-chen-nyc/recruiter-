@@ -1,16 +1,14 @@
-import json
+import json,time
 from django.shortcuts import render, render_to_response,redirect,get_object_or_404
 from django.template.context import RequestContext
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.conf import settings
 from social.apps.django_app.default.models import UserSocialAuth
-
-
 from django.core import serializers
 from django.utils import timezone
 import datetime
-import operator
+from datetime import timedelta
 
 from .models import Company
 from rest_framework import viewsets
@@ -109,11 +107,22 @@ def heroes(request):
 
     statuses = api.GetUserTimeline(screen_name=hero_status,count=50,include_rts=False)
 
+    # filter tweet to only include from last week
+    today = datetime.datetime.today()
+    lastweek = today - timedelta(days=7)
+    format_lastweek = lastweek.strftime("%b %d")
+    new_format = format_lastweek.split()
+
     # gets tweet with the most amount of favorites and retweets
     tweet_counter = 0
     for s in statuses:
         counter = s.favorite_count + s.retweet_count
-        if counter > tweet_counter:
+        tweet_day = s.created_at.split()
+        # if month is not the same - add 30 days to date
+        if new_format[0] != tweet_day[1]:
+            tweet_day[2] = int(tweet_day[2]) + 30
+
+        if int(tweet_day[2]) > int(new_format[1]) and counter > tweet_counter:
             tweet_counter = counter;
             tweet = s
 

@@ -2,9 +2,24 @@
 {% load staticfiles %}
 
   {% block content %}
-      <h1>  {{tweet.user.name}}  </h1>
-      <p> {{tweet.entities}} </p>
-      <p style="text-align: center" class="tweets">{{tweet.text}} <br> <i style="font-size: .7em;"> Created On: {{tweet.created_at}} <i> </p>
-      <p style="text-align: center"> favorited: {{tweet.favorite_count}} | retweeted: {{tweet.retweet_count}} </p>
+    <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
+
+
+  <div class="hero">
+      <h1 class='username'>  {{tweet.user.name}}  </h1>
+      <h3 style="text-align: center" class='screen_name'> <a href="https://twitter.com/{{tweet.user.screen_name}}" target="_blank">
+      @{{tweet.user.screen_name }}</a> </h3>
+      <h3 style="text-align: center" class="tweets">"{{tweet.text}}"</h3>
+      <a href="https://twitter.com/intent/retweet?tweet_id={{tweet.id}}">
+     <div>
+      <img class="retweet" src="{%static "images/retweet-action.png" %}"> </a>
+      <a class="glyphicon glyphicon-home hero-home" href='/'></a>
+    </div>
+  </div>
+
+  <script>
+  var name = $('.screen_name').html();
+
+  </script>
 
   {% endblock %}
