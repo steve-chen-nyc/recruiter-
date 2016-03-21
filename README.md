@@ -42,8 +42,8 @@ Bootcamp Recruiter helps students graduating from the General Assembly WDI progr
     * Sunday - Barack Obama 
 
 # Future Plans 
-  # Connecting students and graduates with working alumni and GA outcome coaches via Twitter. An example would be a live Q&A via a Twitter chat or broadcasted live via Periscope.
-  # Implementing additional frontend features such as follow buttons etc.
+  * Connecting students and graduates with working alumni and GA outcome coaches via Twitter. An example would be a live Q&A via a Twitter chat or broadcasted live via Periscope.
+  * Implementing additional frontend features such as follow buttons etc.
   
 
 
