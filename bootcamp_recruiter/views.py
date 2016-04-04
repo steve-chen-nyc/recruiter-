@@ -46,27 +46,28 @@ def query(request,company_name):
 def tweet(request):
     status = request.POST.get("status", None)
     response = None
-    #get index of first instance of whitespace
+
     index = status.index(' ')
-    #isolates just the twitter handle from status
     twitter_handle = status[1:index].lower()
-    #query company to get company name and pass var into parameter
     company = Company.objects.get(twitter_handle__icontains=twitter_handle)
     company_name = company.company_name
 
     api = get_twitter(request.user)
-    # check to see if tweet passes filter. If pass - tweet if not redirect
+
     if checker(status) == False:
         return redirect('/fail')
 
     else:
         response = api.PostUpdates(status)
 
-    return redirect('query',company_name=company_name)
+    return redirect('query', company_name=company_name)
 
 
 def checker(string):
-    slang_list = ['savage','fam','synergy','totes','bottomline','hardworker','dynamic','proactively','obvi','fleek','yolo','cray','cra-cra','bae','whateves','obvs' ,'ridic','feels','lit','sus','yeet','snatched','trash']
+    slang_list = ['savage', 'fam', 'synergy', 'totes', 'bottomline', 'hardworker',
+                  'dynamic','proactively' ,'obvi' ,'fleek', 'yolo', 'cray', 'cra-cra',
+                  'bae', 'whateves', 'obvs', 'ridic', 'feels', 'lit', 'sus',
+                  'yeet', 'snatched', 'trash']
 
     catcher = []
     tweet = string.lower().split()
