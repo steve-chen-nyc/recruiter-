@@ -1,4 +1,4 @@
-import json,time
+import time
 from django.shortcuts import render, render_to_response,redirect,get_object_or_404
 from django.template.context import RequestContext
 from django.contrib.auth import logout as auth_logout
@@ -22,17 +22,21 @@ def home(request):
     names = Company.objects.all()
     return render(request, 'bootcamp_recruiter/home.html', {'names': names})
 
+
 def company_detail(request,name):
     company_name = get_object_or_404(Company,company_name=name)
     return render(request, 'bootcamp_recruiter/company_detail.html', {'company_name': company_name})
+
 
 def login(request):
     context = RequestContext(request, {'request': request, 'user': request})
     return render(request, 'bootcamp_recruiter/home.html', {'context': context})
 
+
 def logout(request):
     auth_logout(request)
     return redirect('/')
+
 
 @login_required
 def query(request,company_name):
@@ -42,11 +46,13 @@ def query(request,company_name):
     statuses = api.GetUserTimeline(screen_name=handle)
     return render(request, 'bootcamp_recruiter/query.html', {'statuses': statuses})
 
+
 @login_required
 def tweet(request):
     status = request.POST.get("status", None)
     response = None
 
+    # query to get company name for redirect after tweet
     index = status.index(' ')
     twitter_handle = status[1:index].lower()
     company = Company.objects.get(twitter_handle__icontains=twitter_handle)
@@ -88,7 +94,8 @@ def fail(request):
 def heroes(request):
     # gets day of the week - selects user
     today = datetime.datetime.now().strftime("%A").lower()
-    hero_list = ['jack','kobebryant','rickyrozay','therock','sophiaamoruso','shondarhimes','BarackObama']
+    hero_list = ['jack', 'kobebryant', 'rickyrozay', 'therock', 'sophiaamoruso',
+                 'shondarhimes', 'BarackObama']
     api = get_twitter(request.user)
 
     if today == 'monday':
@@ -110,7 +117,7 @@ def heroes(request):
 
     # filter tweet to only include from last week
     today = datetime.datetime.today()
-    lastweek = today - timedelta(days=7)
+    lastweek = today - timedelta(days = 7)
     format_lastweek = lastweek.strftime("%b %d")
     new_format = format_lastweek.split()
 
